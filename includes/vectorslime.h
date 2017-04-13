@@ -1,0 +1,1 @@
+void vectorslime(int progress, Model &mdl, Model &mdl_original, float *distance_buffer, vertex *rotation_buffer, Texture tex, float amount);

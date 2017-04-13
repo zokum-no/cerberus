@@ -108,15 +108,16 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	int i;
 
 	// Development defaults
-	/*
+	/* */
+	
 	bool fullscreen = false;
 	int windowWidth = 960;
-	int windowHeight = 540;*/
+	int windowHeight = 540;
 
 	// Compo show defaults, 16:9
-	bool fullscreen = true;
-	int windowWidth = 1920;
-	int windowHeight = 1080;
+	//bool fullscreen = true;
+	//int windowWidth = 1920;
+	//int windowHeight = 1080;
 
 	int colorBPP = 32;
 

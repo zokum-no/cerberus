@@ -1,11 +1,9 @@
 /*
-
 	Outracks GLWrapper
 	Tiny OpenGL wrapping framework for demo use.
 
     You are free to redistribute, change and use this code without charge.
 	The code is provided "as is", with no warranties or support.
-
  */
 
 #pragma once

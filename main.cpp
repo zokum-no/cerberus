@@ -1,14 +1,17 @@
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <windows.h>
 #include <shellapi.h>
+#include <stdio.h>
 #include <gl/gl.h>
 #include <gl/glu.h>
-#include "GLWrapper.h"
+#include "includes\glwrapper.h"
 
-#include "glfont.h"
-#include <gl\glaux.h>
+#include "includes\glfont.h"
+#include "includes\glaux.h"
 
-#include "Cg/cg.h"
-#include "Cg/cgGL.h"
+#include <cg\cg.h>
+#include <cg\cgGL.h>
 
 #include <math.h>
 
@@ -16,32 +19,39 @@
 #include <ctime>
 
 // my constants
-#include "constants.h"
+#include "includes\constants.h"
 
 // audio lib
-#include "bass.h"
-#include "basswrap.h"
+#include "includes\bass.h"
+#include "includes\basswrap.h"
 
-#include "main.h"
+#include "includes\main.h"
 
 // effects etc
-#include "vumeter.h" 
-#include "loadingscreen.h"
-#include "starfield.h"
-#include "overlay.h"
-#include "linenoice.h"
+/*#include "vumeter.h" */
+#include "includes/loadingscreen.h"
+#include "includes/starfield.h"
+#include "includes/overlay.h"
+/*#include "linenoice.h"
 #include "copperbars.h"
-#include "linemorph.h"
+*/
+#include "includes/linemorph.h"
+/*
 #include "vectorslime.h"
-#include "tunnel.h"
+*/
+#include "includes/tunnel.h"
+/*
 #include "tetris.h"
 #include "plasma.h"
-#include "bumpmapmodel.h"
+*/
+#include "includes/bumpmapmodel.h"
+/*
 #include "imagetricks.h"
 #include "text.h"
+*/
 
 // old stuff, unsorted crap code
-#include "crap.h"
+// #include "crap.h"
 
 /* noen statiske ting */
 float sync[512];
@@ -180,7 +190,7 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	
 	/* All the textures are loaded, update loadingscreen afer loading something */
 
-	load->subtitle = strdup("Textures");
+	load->subtitle = _strdup("Textures");
 	loadingscreen(wnd, load, bgpic);
 	
 	loadingscreen(wnd, load, bgpic);
@@ -241,7 +251,7 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	/* Some are loaded sveral times, for comparison to a deformed version etc...*/
 
 	free(load->subtitle);
-	load->subtitle =strdup("Models...");
+	load->subtitle = _strdup("Models...");
 	
 	loadingscreen(wnd, load, bgpic);
 	Model spikeball1("data/spikeball.ebr");
@@ -266,7 +276,7 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 
 	/* cg, shaders, outdated, but it works... */
 	free(load->subtitle);
-	load->subtitle = strdup("Setting up shaders");
+	load->subtitle = _strdup("Setting up shaders");
 	loadingscreen(wnd, load, bgpic);
 
 	CGcontext cgc = cgCreateContext();
@@ -278,7 +288,7 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 
 	/* Render targets, used for bloom-effects */
 	free(load->subtitle);
-	load->subtitle = strdup("Render targets");
+	load->subtitle = _strdup("Render targets");
 	loadingscreen(wnd, load, bgpic);
 
 
@@ -293,7 +303,7 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 
 /* precalcs, not much done here, put more in here if you need some :) */
 	free(load->subtitle);
-	load->subtitle = strdup("Precalcing...");
+	load->subtitle = _strdup("Precalcing...");
 	loadingscreen(wnd, load, bgpic);
 
 	loadingscreen(wnd, load, bgpic);
@@ -330,7 +340,7 @@ Use this to debug the demo, start at any point in the demo.
 
 /* music */
 	free(load->subtitle);
-	load->subtitle = strdup("Music...");
+	load->subtitle = _strdup("Music...");
 	loadingscreen(wnd, load, bgpic);
 
 /* Here we start the music :)*/	
@@ -445,7 +455,7 @@ Use this to debug the demo, start at any point in the demo.
 			edges = 1;
 			*/
 		} else if (curtime < 70000) {
-			bumpmapmodel(curtime, slimy, blue, bumpmap, 
+			zokum_bumpmapmodel(curtime, slimy, blue, bumpmap, 
 					cgc,
 					fprg,
 					vprg
@@ -461,7 +471,7 @@ Use this to debug the demo, start at any point in the demo.
 				1.0, 1.0);
 
 		} else if (curtime < 80000) {
-			bumpyball(72000, curtime, 8000, hisphere, hisphere_org, blue, 1);
+			zokum_bumpyball(72000, curtime, 8000, hisphere, hisphere_org, blue, 1);
 			edges = 1;
 		}
 		else if (curtime < 86000) {

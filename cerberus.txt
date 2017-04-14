@@ -16,6 +16,8 @@ Installation
 ============
 Make sure you have Nvidia CG, OpenGL, Windows SDK stuff and bass.lib installed.
 
+Visual Studio Community Edition etc need ATL support installed.
+
 Open up the solution, fix any path problem in the 'properties'. Typically the 
 linker lib locations will differ from system to system.
 

@@ -100,8 +100,11 @@ void printDebug(const char *format, ...) {
 bool music;
 
 int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPSTR lpCmdLine, IN int nShowCmd) {
-	char loadingtext[128] = "Loading Tryggvification 9";
-	char windowTitle[128] = "Tryggvification 9";
+	// char loadingtext[128] = "Loading Tryggvification 9";
+	// char windowTitle[128] = "Tryggvification 9";
+	char loadingtext[128] = "Cerberus demo system, loading";
+	char windowTitle[128] = "TG2017 - Cerberus Demo System";
+
 
 	LPWSTR *szArglist;
 	int nArgs;
@@ -163,8 +166,8 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	
 	// Identity matrix, for the math people, it's a matrix with 1 on diagnoal, all else 0
 	/*
-	1 0 0 0 <- this is what it looks like :)
-	0 1 0 0
+	1 0 0 0 <- this is what a 4x4 such matrix looks 
+	0 1 0 0    like
 	0 0 1 0
 	0 0 0 1	
 	*/
@@ -181,9 +184,12 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	gluLookAt(0,0,0, 0,0,-2, 0,1,0);
 
 	// Load one "texture" used for the loading screen fullscreen picture.
+	// All images are textures. A fullscreen image is simply a texture on a surface covering the 
+	// entire screen
 	Texture bgpic("data/loadingscreen.jpg");
 
-	// THe amount of entries being loaded, used for generating the progress bar
+	// The amount of entries being loaded, used for generating the progress bar
+	// There are other ways of doing this more intelligently, but this is an 'easy' approach.
 #define LOAD_ENTRIES 35
 
 	// Progress bar related 
@@ -248,8 +254,12 @@ int CALLBACK WinMain(IN HINSTANCE hInstance, IN HINSTANCE hPrevInstance, IN LPST
 	loadingscreen(wnd, load, bgpic);
 	Texture rushed("data/rushed.png");
 
-	/* All the models used in the demo*/
-	/* Some are loaded sveral times, for comparison to a deformed version etc...*/
+	/* All the models used in the demo
+	Some are loaded sveral times, for comparison to a deformed version etc...
+	
+	These are mostl 3d studio models converted to Easybrush-format, .ebr.
+	
+	*/
 
 	free(load->subtitle);
 	load->subtitle = _strdup("Models...");

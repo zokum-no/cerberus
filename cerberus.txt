@@ -1,1 +1,24 @@
-Feel free to use this code :)
+License
+=======
+This is licensed as Creative Commons, some sort of version. Feel free to use, 
+remix, rework all the code.
+
+Credits
+=======
+Although not needed, crediting Outracks and PiX would be appreaciated.
+
+Coders
+======
+Engine originally written by A. Lassen and others, modified and added to by 
+Kim Roar 'zokum' Foldøy Hauge.
+
+Installation
+============
+Make sure you have Nvidia CG, OpenGL, Windows SDK stuff and bass.lib installed.
+
+Open up the solution, fix any path problem in the 'properties'. Typically the 
+linker lib locations will differ from system to system.
+
+Getting help
+============
+Come ask on #tg-creative on EFNet.
